@@ -1,4 +1,4 @@
-typedef nodo_admin * sigAdmin;
+typedef struct nodo_admin * sigAdmin;
 
 struct nodo_admin{
 	char login[15];

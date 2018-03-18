@@ -10,7 +10,7 @@ xdr_sigAdmin (XDR *xdrs, sigAdmin *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (nodo_admin), (xdrproc_t) xdr_nodo_admin))
+	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (struct nodo_admin), (xdrproc_t) xdr_nodo_admin))
 		 return FALSE;
 	return TRUE;
 }
