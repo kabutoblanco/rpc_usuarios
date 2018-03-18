@@ -10,13 +10,13 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 bool_t *
-ingresoalsistema_1(loginAdmin *argp, CLIENT *clnt)
+ingresarsistema_1(sigAdmin *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, ingresoAlSistema,
-		(xdrproc_t) xdr_loginAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, ingresarSistema,
+		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -25,13 +25,13 @@ ingresoalsistema_1(loginAdmin *argp, CLIENT *clnt)
 }
 
 bool_t *
-registrousuario_1(registrarUsuario *argp, CLIENT *clnt)
+registrarusuario_1(sigUsuario *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, registroUsuario,
-		(xdrproc_t) xdr_registrarUsuario, (caddr_t) argp,
+	if (clnt_call (clnt, registrarUsuario,
+		(xdrproc_t) xdr_sigUsuario, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -40,13 +40,13 @@ registrousuario_1(registrarUsuario *argp, CLIENT *clnt)
 }
 
 bool_t *
-modificardatosadmin_1(loginAdmin *argp, CLIENT *clnt)
+modificaradmin_1(sigAdmin *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, modificarDatosAdmin,
-		(xdrproc_t) xdr_loginAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, modificarAdmin,
+		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -55,13 +55,13 @@ modificardatosadmin_1(loginAdmin *argp, CLIENT *clnt)
 }
 
 bool_t *
-modificardatosusuario_1(registrarUsuario *argp, CLIENT *clnt)
+modificarusuario_1(sigUsuario *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, modificarDatosUsuario,
-		(xdrproc_t) xdr_registrarUsuario, (caddr_t) argp,
+	if (clnt_call (clnt, modificarUsuario,
+		(xdrproc_t) xdr_sigUsuario, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -70,12 +70,12 @@ modificardatosusuario_1(registrarUsuario *argp, CLIENT *clnt)
 }
 
 bool_t *
-borrarregistrousuario_1(char **argp, CLIENT *clnt)
+borrarusuario_1(char **argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, borrarRegistroUsuario,
+	if (clnt_call (clnt, borrarUsuario,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {

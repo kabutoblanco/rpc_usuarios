@@ -12,11 +12,11 @@ administrarcontrolentradasalida_1(char *host)
 {
 	CLIENT *clnt;
 	bool_t  *result_1;
-	loginAdmin  ingresoalsistema_1_arg;
+	sigAdmin  ingresarsistema_1_arg;
 	bool_t  *result_2;
-	loginAdmin  modificardatosadmin_1_arg;
-	void  *result_3;
-	char *consultarusuariosdentroinstalaciones_1_arg;
+	sigAdmin  modificaradmin_1_arg;
+	sigAdmin  *result_3;
+	char *consultarusuariosdentro_1_arg;
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, "udp");
@@ -26,16 +26,16 @@ administrarcontrolentradasalida_1(char *host)
 	}
 #endif	/* DEBUG */
 
-	result_1 = ingresoalsistema_1(&ingresoalsistema_1_arg, clnt);
+	result_1 = ingresarsistema_1(&ingresarsistema_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_2 = modificardatosadmin_1(&modificardatosadmin_1_arg, clnt);
+	result_2 = modificaradmin_1(&modificaradmin_1_arg, clnt);
 	if (result_2 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_3 = consultarusuariosdentroinstalaciones_1((void*)&consultarusuariosdentroinstalaciones_1_arg, clnt);
-	if (result_3 == (void *) NULL) {
+	result_3 = consultarusuariosdentro_1((void*)&consultarusuariosdentro_1_arg, clnt);
+	if (result_3 == (sigAdmin *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
 #ifndef	DEBUG

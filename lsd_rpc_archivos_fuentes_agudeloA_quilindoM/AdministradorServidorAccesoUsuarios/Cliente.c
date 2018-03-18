@@ -12,15 +12,15 @@ administraraccesousuarios_1(char *host)
 {
 	CLIENT *clnt;
 	bool_t  *result_1;
-	loginAdmin  ingresoalsistema_1_arg;
+	sigAdmin  ingresarsistema_1_arg;
 	bool_t  *result_2;
-	registrarUsuario  registrousuario_1_arg;
+	sigUsuario  registrarusuario_1_arg;
 	bool_t  *result_3;
-	loginAdmin  modificardatosadmin_1_arg;
+	sigAdmin  modificaradmin_1_arg;
 	bool_t  *result_4;
-	registrarUsuario  modificardatosusuario_1_arg;
+	sigUsuario  modificarusuario_1_arg;
 	bool_t  *result_5;
-	char * borrarregistrousuario_1_arg;
+	char * borrarusuario_1_arg;
 	bool_t  *result_6;
 	char * buscarusuario_1_arg;
 
@@ -32,23 +32,23 @@ administraraccesousuarios_1(char *host)
 	}
 #endif	/* DEBUG */
 
-	result_1 = ingresoalsistema_1(&ingresoalsistema_1_arg, clnt);
+	result_1 = ingresarsistema_1(&ingresarsistema_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_2 = registrousuario_1(&registrousuario_1_arg, clnt);
+	result_2 = registrarusuario_1(&registrarusuario_1_arg, clnt);
 	if (result_2 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_3 = modificardatosadmin_1(&modificardatosadmin_1_arg, clnt);
+	result_3 = modificaradmin_1(&modificaradmin_1_arg, clnt);
 	if (result_3 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_4 = modificardatosusuario_1(&modificardatosusuario_1_arg, clnt);
+	result_4 = modificarusuario_1(&modificarusuario_1_arg, clnt);
 	if (result_4 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_5 = borrarregistrousuario_1(&borrarregistrousuario_1_arg, clnt);
+	result_5 = borrarusuario_1(&borrarusuario_1_arg, clnt);
 	if (result_5 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}

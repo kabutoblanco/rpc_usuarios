@@ -20,11 +20,11 @@ static void
 administraraccesousuarios_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		loginAdmin ingresoalsistema_1_arg;
-		registrarUsuario registrousuario_1_arg;
-		loginAdmin modificardatosadmin_1_arg;
-		registrarUsuario modificardatosusuario_1_arg;
-		char *borrarregistrousuario_1_arg;
+		sigAdmin ingresarsistema_1_arg;
+		sigUsuario registrarusuario_1_arg;
+		sigAdmin modificaradmin_1_arg;
+		sigUsuario modificarusuario_1_arg;
+		char *borrarusuario_1_arg;
 		char *buscarusuario_1_arg;
 	} argument;
 	char *result;
@@ -36,34 +36,34 @@ administraraccesousuarios_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case ingresoAlSistema:
-		_xdr_argument = (xdrproc_t) xdr_loginAdmin;
+	case ingresarSistema:
+		_xdr_argument = (xdrproc_t) xdr_sigAdmin;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) ingresoalsistema_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) ingresarsistema_1_svc;
 		break;
 
-	case registroUsuario:
-		_xdr_argument = (xdrproc_t) xdr_registrarUsuario;
+	case registrarUsuario:
+		_xdr_argument = (xdrproc_t) xdr_sigUsuario;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) registrousuario_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) registrarusuario_1_svc;
 		break;
 
-	case modificarDatosAdmin:
-		_xdr_argument = (xdrproc_t) xdr_loginAdmin;
+	case modificarAdmin:
+		_xdr_argument = (xdrproc_t) xdr_sigAdmin;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) modificardatosadmin_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) modificaradmin_1_svc;
 		break;
 
-	case modificarDatosUsuario:
-		_xdr_argument = (xdrproc_t) xdr_registrarUsuario;
+	case modificarUsuario:
+		_xdr_argument = (xdrproc_t) xdr_sigUsuario;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) modificardatosusuario_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) modificarusuario_1_svc;
 		break;
 
-	case borrarRegistroUsuario:
+	case borrarUsuario:
 		_xdr_argument = (xdrproc_t) xdr_wrapstring;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) borrarregistrousuario_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) borrarusuario_1_svc;
 		break;
 
 	case buscarUsuario:

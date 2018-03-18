@@ -8,29 +8,29 @@
 
 
 void
-usuario_1(char *host)
+nodo_usuario_1(char *host)
 {
 	CLIENT *clnt;
 	bool_t  *result_1;
-	char * entraralasinstalaciones_1_arg;
+	char * entrarinstalaciones_1_arg;
 	bool_t  *result_2;
-	char * salirdelasinstalaciones_1_arg;
+	char * salirinstalaciones_1_arg;
 	bool_t  *result_3;
 	char * esusuarioregistrado_1_arg;
 
 #ifndef	DEBUG
-	clnt = clnt_create (host, Usuario, Usuario1, "udp");
+	clnt = clnt_create (host, nodo_usuario, Usuario1, "udp");
 	if (clnt == NULL) {
 		clnt_pcreateerror (host);
 		exit (1);
 	}
 #endif	/* DEBUG */
 
-	result_1 = entraralasinstalaciones_1(&entraralasinstalaciones_1_arg, clnt);
+	result_1 = entrarinstalaciones_1(&entrarinstalaciones_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_2 = salirdelasinstalaciones_1(&salirdelasinstalaciones_1_arg, clnt);
+	result_2 = salirinstalaciones_1(&salirinstalaciones_1_arg, clnt);
 	if (result_2 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
@@ -54,6 +54,6 @@ main (int argc, char *argv[])
 		exit (1);
 	}
 	host = argv[1];
-	usuario_1 (host);
+	nodo_usuario_1 (host);
 exit (0);
 }

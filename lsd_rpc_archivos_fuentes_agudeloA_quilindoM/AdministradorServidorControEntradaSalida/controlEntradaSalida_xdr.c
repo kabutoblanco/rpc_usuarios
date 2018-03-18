@@ -6,7 +6,17 @@
 #include "controlEntradaSalida.h"
 
 bool_t
-xdr_loginAdmin (XDR *xdrs, loginAdmin *objp)
+xdr_sigAdmin (XDR *xdrs, sigAdmin *objp)
+{
+	register int32_t *buf;
+
+	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (nodo_admin), (xdrproc_t) xdr_nodo_admin))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_nodo_admin (XDR *xdrs, nodo_admin *objp)
 {
 	register int32_t *buf;
 
@@ -16,6 +26,8 @@ xdr_loginAdmin (XDR *xdrs, loginAdmin *objp)
 		 return FALSE;
 	 if (!xdr_vector (xdrs, (char *)objp->clave, 15,
 		sizeof (char), (xdrproc_t) xdr_char))
+		 return FALSE;
+	 if (!xdr_sigAdmin (xdrs, &objp->nodoSiguiente))
 		 return FALSE;
 	return TRUE;
 }

@@ -7,7 +7,7 @@
 #include "usuario.h"
 
 bool_t *
-entraralasinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
+entrarinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -19,7 +19,7 @@ entraralasinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
 }
 
 bool_t *
-salirdelasinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
+salirinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 

@@ -17,11 +17,11 @@
 #endif
 
 static void
-usuario_1(struct svc_req *rqstp, register SVCXPRT *transp)
+nodo_usuario_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		char *entraralasinstalaciones_1_arg;
-		char *salirdelasinstalaciones_1_arg;
+		char *entrarinstalaciones_1_arg;
+		char *salirinstalaciones_1_arg;
 		char *esusuarioregistrado_1_arg;
 	} argument;
 	char *result;
@@ -33,16 +33,16 @@ usuario_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case entrarALasInstalaciones:
+	case entrarInstalaciones:
 		_xdr_argument = (xdrproc_t) xdr_wrapstring;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) entraralasinstalaciones_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) entrarinstalaciones_1_svc;
 		break;
 
-	case salirDeLasInstalaciones:
+	case salirInstalaciones:
 		_xdr_argument = (xdrproc_t) xdr_wrapstring;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) salirdelasinstalaciones_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) salirinstalaciones_1_svc;
 		break;
 
 	case esUsuarioRegistrado:
@@ -76,15 +76,15 @@ main (int argc, char **argv)
 {
 	register SVCXPRT *transp;
 
-	pmap_unset (Usuario, Usuario1);
+	pmap_unset (nodo_usuario, Usuario1);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
 		fprintf (stderr, "%s", "cannot create udp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, Usuario, Usuario1, usuario_1, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (Usuario, Usuario1, udp).");
+	if (!svc_register(transp, nodo_usuario, Usuario1, nodo_usuario_1, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (nodo_usuario, Usuario1, udp).");
 		exit(1);
 	}
 
@@ -93,8 +93,8 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "cannot create tcp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, Usuario, Usuario1, usuario_1, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (Usuario, Usuario1, tcp).");
+	if (!svc_register(transp, nodo_usuario, Usuario1, nodo_usuario_1, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (nodo_usuario, Usuario1, tcp).");
 		exit(1);
 	}
 

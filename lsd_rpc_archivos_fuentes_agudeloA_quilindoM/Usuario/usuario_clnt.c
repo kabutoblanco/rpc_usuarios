@@ -10,12 +10,12 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 bool_t *
-entraralasinstalaciones_1(char **argp, CLIENT *clnt)
+entrarinstalaciones_1(char **argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, entrarALasInstalaciones,
+	if (clnt_call (clnt, entrarInstalaciones,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
@@ -25,12 +25,12 @@ entraralasinstalaciones_1(char **argp, CLIENT *clnt)
 }
 
 bool_t *
-salirdelasinstalaciones_1(char **argp, CLIENT *clnt)
+salirinstalaciones_1(char **argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, salirDeLasInstalaciones,
+	if (clnt_call (clnt, salirInstalaciones,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {

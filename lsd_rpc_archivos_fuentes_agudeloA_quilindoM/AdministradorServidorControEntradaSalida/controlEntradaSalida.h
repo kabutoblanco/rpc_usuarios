@@ -14,47 +14,52 @@ extern "C" {
 #endif
 
 
-struct loginAdmin {
+typedef nodo_admin *sigAdmin;
+
+struct nodo_admin {
 	char login[15];
 	char clave[15];
+	sigAdmin nodoSiguiente;
 };
-typedef struct loginAdmin loginAdmin;
+typedef struct nodo_admin nodo_admin;
 
 #define AdministrarControlEntradaSalida 0x20000001
 #define AdministrarControlEntradaSalida1 1
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define ingresoAlSistema 1
-extern  bool_t * ingresoalsistema_1(loginAdmin *, CLIENT *);
-extern  bool_t * ingresoalsistema_1_svc(loginAdmin *, struct svc_req *);
-#define modificarDatosAdmin 2
-extern  bool_t * modificardatosadmin_1(loginAdmin *, CLIENT *);
-extern  bool_t * modificardatosadmin_1_svc(loginAdmin *, struct svc_req *);
-#define consultarUsuariosDentroInstalaciones 3
-extern  void * consultarusuariosdentroinstalaciones_1(void *, CLIENT *);
-extern  void * consultarusuariosdentroinstalaciones_1_svc(void *, struct svc_req *);
+#define ingresarSistema 1
+extern  bool_t * ingresarsistema_1(sigAdmin *, CLIENT *);
+extern  bool_t * ingresarsistema_1_svc(sigAdmin *, struct svc_req *);
+#define modificarAdmin 2
+extern  bool_t * modificaradmin_1(sigAdmin *, CLIENT *);
+extern  bool_t * modificaradmin_1_svc(sigAdmin *, struct svc_req *);
+#define consultarUsuariosDentro 3
+extern  sigAdmin * consultarusuariosdentro_1(void *, CLIENT *);
+extern  sigAdmin * consultarusuariosdentro_1_svc(void *, struct svc_req *);
 extern int administrarcontrolentradasalida_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define ingresoAlSistema 1
-extern  bool_t * ingresoalsistema_1();
-extern  bool_t * ingresoalsistema_1_svc();
-#define modificarDatosAdmin 2
-extern  bool_t * modificardatosadmin_1();
-extern  bool_t * modificardatosadmin_1_svc();
-#define consultarUsuariosDentroInstalaciones 3
-extern  void * consultarusuariosdentroinstalaciones_1();
-extern  void * consultarusuariosdentroinstalaciones_1_svc();
+#define ingresarSistema 1
+extern  bool_t * ingresarsistema_1();
+extern  bool_t * ingresarsistema_1_svc();
+#define modificarAdmin 2
+extern  bool_t * modificaradmin_1();
+extern  bool_t * modificaradmin_1_svc();
+#define consultarUsuariosDentro 3
+extern  sigAdmin * consultarusuariosdentro_1();
+extern  sigAdmin * consultarusuariosdentro_1_svc();
 extern int administrarcontrolentradasalida_1_freeresult ();
 #endif /* K&R C */
 
 /* the xdr functions */
 
 #if defined(__STDC__) || defined(__cplusplus)
-extern  bool_t xdr_loginAdmin (XDR *, loginAdmin*);
+extern  bool_t xdr_sigAdmin (XDR *, sigAdmin*);
+extern  bool_t xdr_nodo_admin (XDR *, nodo_admin*);
 
 #else /* K&R C */
-extern bool_t xdr_loginAdmin ();
+extern bool_t xdr_sigAdmin ();
+extern bool_t xdr_nodo_admin ();
 
 #endif /* K&R C */
 
