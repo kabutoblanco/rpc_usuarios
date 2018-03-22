@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "usuario.h"
+#include "controlEntradaSalida.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <rpc/pmap_clnt.h>
@@ -17,12 +17,11 @@
 #endif
 
 static void
-usuario_1(struct svc_req *rqstp, register SVCXPRT *transp)
+administrarcontrolentradasalida_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		char *entrarinstalaciones3_1_arg;
-		char *salirinstalaciones3_1_arg;
-		char *esusuarioregistrado3_1_arg;
+		sigAdmin2 ingresarsistema2_1_arg;
+		sigAdmin2 modificaradmin2_1_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -33,22 +32,22 @@ usuario_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case entrarInstalaciones3:
-		_xdr_argument = (xdrproc_t) xdr_wrapstring;
+	case ingresarSistema2:
+		_xdr_argument = (xdrproc_t) xdr_sigAdmin2;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) entrarinstalaciones3_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) ingresarsistema2_1_svc;
 		break;
 
-	case salirInstalaciones3:
-		_xdr_argument = (xdrproc_t) xdr_wrapstring;
+	case modificarAdmin2:
+		_xdr_argument = (xdrproc_t) xdr_sigAdmin2;
 		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) salirinstalaciones3_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) modificaradmin2_1_svc;
 		break;
 
-	case esUsuarioRegistrado3:
-		_xdr_argument = (xdrproc_t) xdr_wrapstring;
-		_xdr_result = (xdrproc_t) xdr_bool;
-		local = (char *(*)(char *, struct svc_req *)) esusuarioregistrado3_1_svc;
+	case consultarUsuariosDentro2:
+		_xdr_argument = (xdrproc_t) xdr_void;
+		_xdr_result = (xdrproc_t) xdr_sigUsuario2;
+		local = (char *(*)(char *, struct svc_req *)) consultarusuariosdentro2_1_svc;
 		break;
 
 	default:
@@ -76,15 +75,15 @@ main (int argc, char **argv)
 {
 	register SVCXPRT *transp;
 
-	pmap_unset (Usuario, Usuario1);
+	pmap_unset (AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
 		fprintf (stderr, "%s", "cannot create udp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, Usuario, Usuario1, usuario_1, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (Usuario, Usuario1, udp).");
+	if (!svc_register(transp, AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, administrarcontrolentradasalida_1, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, udp).");
 		exit(1);
 	}
 
@@ -93,8 +92,8 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "cannot create tcp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, Usuario, Usuario1, usuario_1, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (Usuario, Usuario1, tcp).");
+	if (!svc_register(transp, AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, administrarcontrolentradasalida_1, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, tcp).");
 		exit(1);
 	}
 

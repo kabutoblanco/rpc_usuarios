@@ -5,9 +5,10 @@
  */
 
 #include "usuario.h"
+#include "controlEntradaSalida.h"
 
 bool_t *
-entrarinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
+entrarinstalaciones3_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -19,7 +20,7 @@ entrarinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
 }
 
 bool_t *
-salirinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
+salirinstalaciones3_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -31,7 +32,7 @@ salirinstalaciones_1_svc(char **argp, struct svc_req *rqstp)
 }
 
 bool_t *
-esusuarioregistrado_1_svc(char **argp, struct svc_req *rqstp)
+esusuarioregistrado3_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 

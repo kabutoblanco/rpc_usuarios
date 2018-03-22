@@ -14,85 +14,85 @@ extern "C" {
 #endif
 
 
-typedef struct nodo_admin *sigAdmin;
+typedef struct nodo_admin1 *sigAdmin1;
 
-typedef struct nodo_usuario *sigUsuario;
+typedef struct nodo_usuario1 *sigUsuario1;
 
-struct nodo_admin {
+struct nodo_admin1 {
 	char login[15];
 	char clave[15];
-	sigAdmin nodoSiguiente;
+	sigAdmin1 nodoSiguiente;
 };
-typedef struct nodo_admin nodo_admin;
+typedef struct nodo_admin1 nodo_admin1;
 
-struct nodo_usuario {
+struct nodo_usuario1 {
 	char nombres[50];
 	char apellidos[50];
 	char rol[15];
 	char codigo[8];
-	sigUsuario nodoSiguiente;
+	sigUsuario1 nodoSiguiente;
 };
-typedef struct nodo_usuario nodo_usuario;
+typedef struct nodo_usuario1 nodo_usuario1;
 
-#define AdministrarAccesoUsuarios 0x20000001
+#define AdministrarAccesoUsuarios 0x20000002
 #define AdministrarAccesoUsuarios1 1
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define ingresarSistema 1
-extern  bool_t * ingresarsistema_1(sigAdmin *, CLIENT *);
-extern  bool_t * ingresarsistema_1_svc(sigAdmin *, struct svc_req *);
-#define registrarUsuario 2
-extern  bool_t * registrarusuario_1(sigUsuario *, CLIENT *);
-extern  bool_t * registrarusuario_1_svc(sigUsuario *, struct svc_req *);
-#define modificarAdmin 3
-extern  bool_t * modificaradmin_1(sigAdmin *, CLIENT *);
-extern  bool_t * modificaradmin_1_svc(sigAdmin *, struct svc_req *);
-#define modificarUsuario 4
-extern  bool_t * modificarusuario_1(sigUsuario *, CLIENT *);
-extern  bool_t * modificarusuario_1_svc(sigUsuario *, struct svc_req *);
-#define borrarUsuario 5
-extern  bool_t * borrarusuario_1(char **, CLIENT *);
-extern  bool_t * borrarusuario_1_svc(char **, struct svc_req *);
-#define buscarUsuario 6
-extern  bool_t * buscarusuario_1(char **, CLIENT *);
-extern  bool_t * buscarusuario_1_svc(char **, struct svc_req *);
+#define ingresarSistema1 4
+extern  bool_t * ingresarsistema1_1(sigAdmin1 *, CLIENT *);
+extern  bool_t * ingresarsistema1_1_svc(sigAdmin1 *, struct svc_req *);
+#define registrarUsuario1 5
+extern  bool_t * registrarusuario1_1(sigUsuario1 *, CLIENT *);
+extern  bool_t * registrarusuario1_1_svc(sigUsuario1 *, struct svc_req *);
+#define modificarAdmin1 6
+extern  bool_t * modificaradmin1_1(sigAdmin1 *, CLIENT *);
+extern  bool_t * modificaradmin1_1_svc(sigAdmin1 *, struct svc_req *);
+#define modificarUsuario1 7
+extern  bool_t * modificarusuario1_1(sigUsuario1 *, CLIENT *);
+extern  bool_t * modificarusuario1_1_svc(sigUsuario1 *, struct svc_req *);
+#define borrarUsuario1 8
+extern  bool_t * borrarusuario1_1(char **, CLIENT *);
+extern  bool_t * borrarusuario1_1_svc(char **, struct svc_req *);
+#define buscarUsuario1 9
+extern  bool_t * buscarusuario1_1(char **, CLIENT *);
+extern  bool_t * buscarusuario1_1_svc(char **, struct svc_req *);
 extern int administraraccesousuarios_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define ingresarSistema 1
-extern  bool_t * ingresarsistema_1();
-extern  bool_t * ingresarsistema_1_svc();
-#define registrarUsuario 2
-extern  bool_t * registrarusuario_1();
-extern  bool_t * registrarusuario_1_svc();
-#define modificarAdmin 3
-extern  bool_t * modificaradmin_1();
-extern  bool_t * modificaradmin_1_svc();
-#define modificarUsuario 4
-extern  bool_t * modificarusuario_1();
-extern  bool_t * modificarusuario_1_svc();
-#define borrarUsuario 5
-extern  bool_t * borrarusuario_1();
-extern  bool_t * borrarusuario_1_svc();
-#define buscarUsuario 6
-extern  bool_t * buscarusuario_1();
-extern  bool_t * buscarusuario_1_svc();
+#define ingresarSistema1 4
+extern  bool_t * ingresarsistema1_1();
+extern  bool_t * ingresarsistema1_1_svc();
+#define registrarUsuario1 5
+extern  bool_t * registrarusuario1_1();
+extern  bool_t * registrarusuario1_1_svc();
+#define modificarAdmin1 6
+extern  bool_t * modificaradmin1_1();
+extern  bool_t * modificaradmin1_1_svc();
+#define modificarUsuario1 7
+extern  bool_t * modificarusuario1_1();
+extern  bool_t * modificarusuario1_1_svc();
+#define borrarUsuario1 8
+extern  bool_t * borrarusuario1_1();
+extern  bool_t * borrarusuario1_1_svc();
+#define buscarUsuario1 9
+extern  bool_t * buscarusuario1_1();
+extern  bool_t * buscarusuario1_1_svc();
 extern int administraraccesousuarios_1_freeresult ();
 #endif /* K&R C */
 
 /* the xdr functions */
 
 #if defined(__STDC__) || defined(__cplusplus)
-extern  bool_t xdr_sigAdmin (XDR *, sigAdmin*);
-extern  bool_t xdr_sigUsuario (XDR *, sigUsuario*);
-extern  bool_t xdr_nodo_admin (XDR *, nodo_admin*);
-extern  bool_t xdr_nodo_usuario (XDR *, nodo_usuario*);
+extern  bool_t xdr_sigAdmin1 (XDR *, sigAdmin1*);
+extern  bool_t xdr_sigUsuario1 (XDR *, sigUsuario1*);
+extern  bool_t xdr_nodo_admin1 (XDR *, nodo_admin1*);
+extern  bool_t xdr_nodo_usuario1 (XDR *, nodo_usuario1*);
 
 #else /* K&R C */
-extern bool_t xdr_sigAdmin ();
-extern bool_t xdr_sigUsuario ();
-extern bool_t xdr_nodo_admin ();
-extern bool_t xdr_nodo_usuario ();
+extern bool_t xdr_sigAdmin1 ();
+extern bool_t xdr_sigUsuario1 ();
+extern bool_t xdr_nodo_admin1 ();
+extern bool_t xdr_nodo_usuario1 ();
 
 #endif /* K&R C */
 

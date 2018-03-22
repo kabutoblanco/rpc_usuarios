@@ -58,27 +58,35 @@ echo "cp ../accesoUsuarios_svc.c "$name3
 cp ../accesoUsuarios_xdr.c $name3
 echo "cp ../accesoUsuarios_xdr.c "$name3
 
+cp ../controlEntradaSalida.x $name4
+echo "cp ../controlEntradaSalida.x "$name4
+cp ../controlEntradaSalida.h $name4
+echo "cp ../controlEntradaSalida.h "$name4
+cp ../controlEntradaSalida_svc.c $name4
+echo "cp ../controlEntradaSalida_svc.c "$name4
+cp ../controlEntradaSalida_xdr.c $name4
+echo "cp ../controlEntradaSalida_xdr.c "$name4
 cp ../accesoUsuarios.x $name4
-echo "../accesoUsuarios.x "$name4
+echo "cp ../accesoUsuarios.x "$name4
 cp ../accesoUsuarios.h $name4
-echo "../accesoUsuarios.h "$name4
+echo "cp ../accesoUsuarios.h "$name4
 cp ../accesoUsuarios_clnt.c $name4
-echo "../accesoUsuarios_clnt.c "$name4
+echo "cp ../accesoUsuarios_clnt.c "$name4
 cp ../accesoUsuarios_xdr.c $name4
-echo "../accesoUsuarios_xdr.c "$name4 
+echo "cp ../accesoUsuarios_xdr.c "$name4 
 cp ../usuario.x $name4
-echo "../usuario.x "$name4
+echo "cp ../usuario.x "$name4
 cp ../usuario.h $name4
-echo "../usuario.h "$name4
+echo "cp ../usuario.h "$name4
 cp ../usuario_svc.c $name4
-echo "../usuario_svc.c "$name4
+echo "cp ../usuario_svc.c "$name4
 
 cp ../usuario.x $name5
-echo "../usuario.x "$name5
+echo "cp ../usuario.x "$name5
 cp ../usuario.h $name5
-echo "../usuario.h "$name5
+echo "cp ../usuario.h "$name5
 cp ../usuario_clnt.c $name5
-echo "../usuario_clnt.c "$name5 
+echo "cp ../usuario_clnt.c "$name5 
 
 cd $name1
 echo "cd "$name1
@@ -111,14 +119,20 @@ cd ../$name4
 echo "cd ../"$name4
 rpcgen -Sc accesoUsuarios.x > Cliente.c
 echo "rpcgen -Sc accesoUsuarios.x > Cliente.c"
-rpcgen -Ss usuario.x > Servidor.c
-echo "rpcgen -Ss usuario.x > Servidor.c"
+rpcgen -Ss usuario.x > Servidor1.c
+echo "rpcgen -Ss usuario.x > Servidor1.c"
+rpcgen -Ss controlEntradaSalida.x > Servidor2.c
+echo "rpcgen -Ss controlEntradaSalida.x > Servidor2.c"
 rpcgen -Sm accesoUsuarios.x > makeC
 echo "rpcgen -Sm accesoUsuarios.x > makeC"
-rpcgen -Sm usuario.x > makeS
-echo "rpcgen -Sm usuario.x > makeS"
-chmod +777 Servidor.c
-chmod +777 makeS
+rpcgen -Sm controlEntradaSalida.x > makeS2
+echo "rpcgen -Sm controlEntradaSalida.x > makeS2"
+rpcgen -Sm usuario.x > makeS1
+echo "rpcgen -Sm usuario.x > makeS1"
+chmod +777 Servidor1.c
+chmod +777 makeS1
+chmod +777 Servidor2.c
+chmod +777 makeS2
 chmod +777 Cliente.c
 chmod +777 makeC
 

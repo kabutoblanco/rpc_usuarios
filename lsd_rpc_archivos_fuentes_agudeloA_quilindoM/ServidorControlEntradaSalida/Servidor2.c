@@ -4,8 +4,9 @@
  * as a guideline for developing your own functions.
  */
 
+#include "controlEntradaSalida.h"
 #include "accesoUsuarios.h"
-
+#include "usuario.h"
 
 void
 administraraccesousuarios_1(char *host)
@@ -61,17 +62,39 @@ administraraccesousuarios_1(char *host)
 #endif	 /* DEBUG */
 }
 
-
-int
-main (int argc, char *argv[])
+bool_t *
+ingresarsistema2_1_svc(sigAdmin2 *argp, struct svc_req *rqstp)
 {
-	char *host;
+	static bool_t  result;
 
-	if (argc < 2) {
-		printf ("usage: %s server_host\n", argv[0]);
-		exit (1);
-	}
-	host = argv[1];
-	administraraccesousuarios_1 (host);
-exit (0);
+	/*
+	 * insert server code here
+	 */
+	 
+
+	return &result;
+}
+
+bool_t *
+modificaradmin2_1_svc(sigAdmin2 *argp, struct svc_req *rqstp)
+{
+	static bool_t  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+sigUsuario2 *
+consultarusuariosdentro2_1_svc(void *argp, struct svc_req *rqstp)
+{
+	static sigUsuario2  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
 }

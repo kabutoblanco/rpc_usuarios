@@ -1,15 +1,24 @@
-typedef struct nodo_admin * sigAdmin;
+typedef struct nodo_admin2 * sigAdmin2;
+typedef struct nodo_usuario2 * sigUsuario2;
 
-struct nodo_admin{
+struct nodo_admin2{
 	char login[15];
 	char clave[15];
-	sigAdmin nodoSiguiente; 
+	sigAdmin2 nodoSiguiente;
+};
+
+struct nodo_usuario2{
+	char nombres[50];
+	char apellidos[50];
+	char rol[15];
+	char codigo[8];
+	sigUsuario2 nodoSiguiente;
 };
 
 program AdministrarControlEntradaSalida{
 	version AdministrarControlEntradaSalida1{
-		bool ingresarSistema(sigAdmin admin)=1;
-		bool modificarAdmin(sigAdmin admin)=2;
-		sigAdmin consultarUsuariosDentro(void)=3;
+		bool ingresarSistema2(sigAdmin2 admin)=10;
+		bool modificarAdmin2(sigAdmin2 admin)=11;
+		sigUsuario2 consultarUsuariosDentro2(void)=12;
 	}=1;
-}=0x20000001;
+}=0x20000003;

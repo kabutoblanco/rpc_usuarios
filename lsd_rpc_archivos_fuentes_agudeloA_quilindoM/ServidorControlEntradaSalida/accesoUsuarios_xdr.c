@@ -6,27 +6,27 @@
 #include "accesoUsuarios.h"
 
 bool_t
-xdr_sigAdmin (XDR *xdrs, sigAdmin *objp)
+xdr_sigAdmin1 (XDR *xdrs, sigAdmin1 *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (struct nodo_admin), (xdrproc_t) xdr_nodo_admin))
+	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (struct nodo_admin1), (xdrproc_t) xdr_nodo_admin1))
 		 return FALSE;
 	return TRUE;
 }
 
 bool_t
-xdr_sigUsuario (XDR *xdrs, sigUsuario *objp)
+xdr_sigUsuario1 (XDR *xdrs, sigUsuario1 *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (struct nodo_usuario), (xdrproc_t) xdr_nodo_usuario))
+	 if (!xdr_pointer (xdrs, (char **)objp, sizeof (struct nodo_usuario1), (xdrproc_t) xdr_nodo_usuario1))
 		 return FALSE;
 	return TRUE;
 }
 
 bool_t
-xdr_nodo_admin (XDR *xdrs, nodo_admin *objp)
+xdr_nodo_admin1 (XDR *xdrs, nodo_admin1 *objp)
 {
 	register int32_t *buf;
 
@@ -37,13 +37,13 @@ xdr_nodo_admin (XDR *xdrs, nodo_admin *objp)
 	 if (!xdr_vector (xdrs, (char *)objp->clave, 15,
 		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
-	 if (!xdr_sigAdmin (xdrs, &objp->nodoSiguiente))
+	 if (!xdr_sigAdmin1 (xdrs, &objp->nodoSiguiente))
 		 return FALSE;
 	return TRUE;
 }
 
 bool_t
-xdr_nodo_usuario (XDR *xdrs, nodo_usuario *objp)
+xdr_nodo_usuario1 (XDR *xdrs, nodo_usuario1 *objp)
 {
 	register int32_t *buf;
 
@@ -60,7 +60,7 @@ xdr_nodo_usuario (XDR *xdrs, nodo_usuario *objp)
 	 if (!xdr_vector (xdrs, (char *)objp->codigo, 8,
 		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
-	 if (!xdr_sigUsuario (xdrs, &objp->nodoSiguiente))
+	 if (!xdr_sigUsuario1 (xdrs, &objp->nodoSiguiente))
 		 return FALSE;
 	return TRUE;
 }

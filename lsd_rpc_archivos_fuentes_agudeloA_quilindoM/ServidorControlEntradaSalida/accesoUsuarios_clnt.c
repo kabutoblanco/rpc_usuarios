@@ -10,13 +10,13 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 bool_t *
-ingresarsistema_1(sigAdmin *argp, CLIENT *clnt)
+ingresarsistema1_1(sigAdmin1 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, ingresarSistema,
-		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, ingresarSistema1,
+		(xdrproc_t) xdr_sigAdmin1, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -25,13 +25,13 @@ ingresarsistema_1(sigAdmin *argp, CLIENT *clnt)
 }
 
 bool_t *
-registrarusuario_1(sigUsuario *argp, CLIENT *clnt)
+registrarusuario1_1(sigUsuario1 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, registrarUsuario,
-		(xdrproc_t) xdr_sigUsuario, (caddr_t) argp,
+	if (clnt_call (clnt, registrarUsuario1,
+		(xdrproc_t) xdr_sigUsuario1, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -40,13 +40,13 @@ registrarusuario_1(sigUsuario *argp, CLIENT *clnt)
 }
 
 bool_t *
-modificaradmin_1(sigAdmin *argp, CLIENT *clnt)
+modificaradmin1_1(sigAdmin1 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, modificarAdmin,
-		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, modificarAdmin1,
+		(xdrproc_t) xdr_sigAdmin1, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -55,13 +55,13 @@ modificaradmin_1(sigAdmin *argp, CLIENT *clnt)
 }
 
 bool_t *
-modificarusuario_1(sigUsuario *argp, CLIENT *clnt)
+modificarusuario1_1(sigUsuario1 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, modificarUsuario,
-		(xdrproc_t) xdr_sigUsuario, (caddr_t) argp,
+	if (clnt_call (clnt, modificarUsuario1,
+		(xdrproc_t) xdr_sigUsuario1, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -70,12 +70,12 @@ modificarusuario_1(sigUsuario *argp, CLIENT *clnt)
 }
 
 bool_t *
-borrarusuario_1(char **argp, CLIENT *clnt)
+borrarusuario1_1(char **argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, borrarUsuario,
+	if (clnt_call (clnt, borrarUsuario1,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
@@ -85,12 +85,12 @@ borrarusuario_1(char **argp, CLIENT *clnt)
 }
 
 bool_t *
-buscarusuario_1(char **argp, CLIENT *clnt)
+buscarusuario1_1(char **argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, buscarUsuario,
+	if (clnt_call (clnt, buscarUsuario1,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {

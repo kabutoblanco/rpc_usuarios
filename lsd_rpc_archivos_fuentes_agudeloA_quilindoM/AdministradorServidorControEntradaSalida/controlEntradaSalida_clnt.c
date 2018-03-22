@@ -10,13 +10,13 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 bool_t *
-ingresarsistema_1(sigAdmin *argp, CLIENT *clnt)
+ingresarsistema2_1(sigAdmin2 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, ingresarSistema,
-		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, ingresarSistema2,
+		(xdrproc_t) xdr_sigAdmin2, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -25,13 +25,13 @@ ingresarsistema_1(sigAdmin *argp, CLIENT *clnt)
 }
 
 bool_t *
-modificaradmin_1(sigAdmin *argp, CLIENT *clnt)
+modificaradmin2_1(sigAdmin2 *argp, CLIENT *clnt)
 {
 	static bool_t clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, modificarAdmin,
-		(xdrproc_t) xdr_sigAdmin, (caddr_t) argp,
+	if (clnt_call (clnt, modificarAdmin2,
+		(xdrproc_t) xdr_sigAdmin2, (caddr_t) argp,
 		(xdrproc_t) xdr_bool, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -39,15 +39,15 @@ modificaradmin_1(sigAdmin *argp, CLIENT *clnt)
 	return (&clnt_res);
 }
 
-sigAdmin *
-consultarusuariosdentro_1(void *argp, CLIENT *clnt)
+sigUsuario2 *
+consultarusuariosdentro2_1(void *argp, CLIENT *clnt)
 {
-	static sigAdmin clnt_res;
+	static sigUsuario2 clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, consultarUsuariosDentro,
+	if (clnt_call (clnt, consultarUsuariosDentro2,
 		(xdrproc_t) xdr_void, (caddr_t) argp,
-		(xdrproc_t) xdr_sigAdmin, (caddr_t) &clnt_res,
+		(xdrproc_t) xdr_sigUsuario2, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
 	}

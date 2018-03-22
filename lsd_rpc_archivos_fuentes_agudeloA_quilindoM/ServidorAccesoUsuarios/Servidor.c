@@ -7,7 +7,7 @@
 #include "accesoUsuarios.h"
 
 bool_t *
-ingresarsistema_1_svc(sigAdmin *argp, struct svc_req *rqstp)
+ingresarsistema1_1_svc(sigAdmin1 *argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -19,7 +19,7 @@ ingresarsistema_1_svc(sigAdmin *argp, struct svc_req *rqstp)
 }
 
 bool_t *
-registrarusuario_1_svc(sigUsuario *argp, struct svc_req *rqstp)
+registrarusuario1_1_svc(sigUsuario1 *argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -31,7 +31,7 @@ registrarusuario_1_svc(sigUsuario *argp, struct svc_req *rqstp)
 }
 
 bool_t *
-modificaradmin_1_svc(sigAdmin *argp, struct svc_req *rqstp)
+modificaradmin1_1_svc(sigAdmin1 *argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -43,7 +43,7 @@ modificaradmin_1_svc(sigAdmin *argp, struct svc_req *rqstp)
 }
 
 bool_t *
-modificarusuario_1_svc(sigUsuario *argp, struct svc_req *rqstp)
+modificarusuario1_1_svc(sigUsuario1 *argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -55,7 +55,7 @@ modificarusuario_1_svc(sigUsuario *argp, struct svc_req *rqstp)
 }
 
 bool_t *
-borrarusuario_1_svc(char **argp, struct svc_req *rqstp)
+borrarusuario1_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 
@@ -67,7 +67,7 @@ borrarusuario_1_svc(char **argp, struct svc_req *rqstp)
 }
 
 bool_t *
-buscarusuario_1_svc(char **argp, struct svc_req *rqstp)
+buscarusuario1_1_svc(char **argp, struct svc_req *rqstp)
 {
 	static bool_t  result;
 

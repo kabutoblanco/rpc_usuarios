@@ -4,8 +4,10 @@
  * as a guideline for developing your own functions.
  */
 
+#include "usuario.h"
 #include "accesoUsuarios.h"
 
+int esta = 0;
 
 void
 administraraccesousuarios_1(char *host)
@@ -33,6 +35,7 @@ administraraccesousuarios_1(char *host)
 #endif	/* DEBUG */
 
 	result_1 = ingresarsistema1_1(&ingresarsistema1_1_arg, clnt);
+	esta = *result_1;
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
@@ -61,17 +64,40 @@ administraraccesousuarios_1(char *host)
 #endif	 /* DEBUG */
 }
 
-
-int
-main (int argc, char *argv[])
+bool_t *
+entrarinstalaciones3_1_svc(char **argp, struct svc_req *rqstp)
 {
-	char *host;
+	static bool_t  result;
 
-	if (argc < 2) {
-		printf ("usage: %s server_host\n", argv[0]);
-		exit (1);
-	}
-	host = argv[1];
-	administraraccesousuarios_1 (host);
-exit (0);
+	/*
+	 * insert server code here
+	 */
+	administraraccesousuarios_1("localhost");
+	printf("%d", esta);
+
+	return &result;
+}
+
+bool_t *
+salirinstalaciones3_1_svc(char **argp, struct svc_req *rqstp)
+{
+	static bool_t  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+bool_t *
+esusuarioregistrado3_1_svc(char **argp, struct svc_req *rqstp)
+{
+	static bool_t  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
 }
