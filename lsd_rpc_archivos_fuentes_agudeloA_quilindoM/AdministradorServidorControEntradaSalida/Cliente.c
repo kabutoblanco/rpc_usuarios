@@ -4,6 +4,12 @@
  * as a guideline for developing your own functions.
  */
 
+<<<<<<< HEAD
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #include "controlEntradaSalida.h"
 
 
@@ -17,6 +23,11 @@ administrarcontrolentradasalida_1(char *host)
 	sigAdmin2  modificaradmin2_1_arg;
 	sigUsuario2  *result_3;
 	char *consultarusuariosdentro2_1_arg;
+<<<<<<< HEAD
+	int opcion;
+	int op_admin;
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, AdministrarControlEntradaSalida, AdministrarControlEntradaSalida1, "udp");
@@ -26,6 +37,83 @@ administrarcontrolentradasalida_1(char *host)
 	}
 #endif	/* DEBUG */
 
+<<<<<<< HEAD
+	opcion = 0;
+	while(opcion != 2)
+	{
+		printf("==================================================\n");
+		printf("\t MENU CONTROL E/S \n");
+		printf("==================================================\n");
+		printf("1. Ingresar al sistema\n");
+		printf("2. Salir\n");
+		printf("==================================================\n");
+		printf("Digite una opcion\n");
+		scanf("%d",  &opcion);
+		if(opcion == 1){
+			system("clear");
+			printf("==================================================\n");
+			printf("\t INICIAR SESION \n");
+			printf("==================================================\n");
+			printf("Ingrese el login\n");
+			scanf("%s", &ingresarsistema2_1_arg->login);
+			printf("Ingrese la clave\n");
+			scanf("%s", &ingresarsistema2_1_arg->clave);
+			printf("==================================================\n");
+			
+			/*llamado para ingresar al sistema*/
+			result_1 = ingresarsistema2_1(&ingresarsistema2_1_arg, clnt);
+			if (result_1 == (bool_t *) NULL) {
+				clnt_perror (clnt, "call failed");
+			}
+			
+			/*LOGIN CORRECTO*/
+			if(*result_1){
+				op_admin = 0;
+				while(op_admin != 3)
+				{
+					system("clear");
+					printf("==================================================\n");
+					printf("\t MENU ADMINISTRADOR \n");
+					printf("==================================================\n");
+					printf("1. Modificar los datos de administrador\n");
+					printf("2. Consultar usuarios en la instalacion\n");
+					printf("3. Salir\n");
+					printf("==================================================\n");
+					scanf("%d", &op_admin);
+					switch(op_admin){
+						case 1: printf("Digite su login\n");
+							scanf("%s", &modificaradmin2_1_arg->login);
+							printf("Digite su clave\n");
+							scanf("%s", &modificaradmin2_1_arg->clave);
+							result_2 = modificaradmin2_1(&modificaradmin2_1_arg, clnt);
+							if (result_2 == (bool_t *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							if(*result_2){
+								printf("Se modifico los datos del administrador\n");
+							} else {
+								printf("Fallo: modificacion de datos del administrador\n");
+							}
+							break;
+
+						case 2: result_3 = consultarusuariosdentro2_1((void*)&consultarusuariosdentro2_1_arg, clnt);
+							if (result_3 == (sigUsuario2 *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							break;
+
+						default: printf("opcion no valida!");
+							 break;
+					}
+				}
+			} else{ /*LOGIN INCORRECTO*/
+				printf("Login incorrecto!\n presione Enter para continuar\n");
+			}
+		}
+	}
+
+
+=======
 	result_1 = ingresarsistema2_1(&ingresarsistema2_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
@@ -38,6 +126,7 @@ administrarcontrolentradasalida_1(char *host)
 	if (result_3 == (sigUsuario2 *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */

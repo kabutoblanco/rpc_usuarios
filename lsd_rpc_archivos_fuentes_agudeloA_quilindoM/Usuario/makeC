@@ -3,11 +3,19 @@
 
 # Parameters
 
+<<<<<<< HEAD
+CLIENT = Cliente
+SERVER = 
+
+SOURCES_CLNT.c = Cliente.c
+SOURCES_CLNT.h = usuario.h
+=======
 CLIENT = usuario_client
 SERVER = usuario_server
 
 SOURCES_CLNT.c = 
 SOURCES_CLNT.h = 
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 SOURCES_SVC.c = 
 SOURCES_SVC.h = 
 SOURCES.x = usuario.x

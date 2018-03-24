@@ -4,6 +4,12 @@
  * as a guideline for developing your own functions.
  */
 
+<<<<<<< HEAD
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #include "accesoUsuarios.h"
 
 
@@ -23,6 +29,11 @@ administraraccesousuarios_1(char *host)
 	char * borrarusuario1_1_arg;
 	bool_t  *result_6;
 	char * buscarusuario1_1_arg;
+<<<<<<< HEAD
+	int opcion;
+	int op_admin;
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, AdministrarAccesoUsuarios, AdministrarAccesoUsuarios1, "udp");
@@ -32,6 +43,158 @@ administraraccesousuarios_1(char *host)
 	}
 #endif	/* DEBUG */
 
+<<<<<<< HEAD
+
+	opcion = 0;
+	while(opcion != 2)
+	{
+		printf("==================================================\n");
+		printf("\t MENU GESTION DE USUARIOS \n");
+		printf("==================================================\n");
+		printf("1. Ingresar al sistema\n");
+		printf("2. Salir\n");
+		printf("==================================================\n");
+		printf("Digite una opcion\n");
+		scanf("%d",  &opcion);
+		if(opcion == 1){
+			system("clear");
+			printf("==================================================\n");
+			printf("\t INICIAR SESION \n");
+			printf("==================================================\n");
+			printf("Ingrese el login\n");
+			scanf("%s", &ingresarsistema1_1_arg->login);
+			printf("Ingrese la clave\n");
+			scanf("%s", &ingresarsistema1_1_arg->clave);
+			printf("==================================================\n");
+			
+			/*llamado para ingresar al sistema*/
+			result_1 = ingresarsistema1_1(&ingresarsistema1_1_arg, clnt);
+			if (result_1 == (bool_t *) NULL) {
+				clnt_perror (clnt, "call failed");
+			}
+			
+			/*LOGIN CORRECTO*/
+			if(*result_1){
+				op_admin = 0;
+				while(op_admin != 5)
+				{
+					system("clear");
+					printf("==================================================\n");
+					printf("\t MENU ADMINISTRADOR \n");
+					printf("==================================================\n");
+					printf("1. Modificar los datos de administrador\n");
+					printf("2. Registrar usuario\n");
+					printf("3. Modificar los datos de usuario\n");
+					printf("4. Borrar registro de usuario\n");
+					printf("5. Salir\n");
+					printf("==================================================\n");
+					scanf("%d", &op_admin);
+					switch(op_admin){
+						case 1: printf("Digite su login\n");
+							scanf("%s", &modificaradmin1_1_arg->login);
+							printf("Digite su clave\n");
+							scanf("%s", &modificaradmin1_1_arg->clave);
+							result_3 = modificaradmin1_1(&modificaradmin1_1_arg, clnt);
+							if (result_3 == (bool_t *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							if(*result_3){
+								printf("Se modifico los datos del administrador\n");
+							} else {
+								printf("Fallo: modificacion de datos del administrador\n");
+							}
+							break;
+						
+						case 2: /*Registro de usuario*/
+							printf("Ingrese los nombres del usuario\n");
+							scanf("%s", &registrarusuario1_1_arg->nombres);
+							printf("Ingrese los apellidos del usuario\n");
+							scanf("%s", &registrarusuario1_1_arg->apellidos);
+							printf("Ingrese el rol del usuario\n");
+							scanf("%s", &registrarusuario1_1_arg->rol);
+							printf("Ingrese el codigo del usuario\n");
+							scanf("%s", &registrarusuario1_1_arg->codigo);
+							result_2 = registrarusuario1_1(&registrarusuario1_1_arg, clnt);
+							if (result_2 == (bool_t *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							if(*result_2){
+								printf("Registro de usuario con exito!\n");
+							} else {
+								printf("Fallo: registro de usuario\n");
+							}
+
+							break;
+						case 3: /*Modificar registro de usuario*/
+							/*BUSCAR*/
+							printf("Ingrese el codigo del usuario\n");
+							scanf("%s", &buscarusuario1_1_arg);
+							result_6 = buscarusuario1_1(&buscarusuario1_1_arg, clnt);
+							if (result_6 == (bool_t *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							//Si existe el usuario
+							if(*result_6){
+								printf("Ingrese los nombres del usuario\n");
+								scanf("%s", &registrarusuario1_1_arg->nombres);
+								printf("Ingrese los apellidos del usuario\n");
+								scanf("%s", &registrarusuario1_1_arg->apellidos);
+								printf("Ingrese el rol del usuario\n");
+								scanf("%s", &registrarusuario1_1_arg->rol);
+								printf("Ingrese el codigo del usuario\n");
+								scanf("%s", &registrarusuario1_1_arg->codigo);
+								result_4 = modificarusuario1_1(&modificarusuario1_1_arg, clnt);
+								if (result_4 == (bool_t *) NULL) {
+									clnt_perror (clnt, "call failed");
+								}
+								if(*result_4){
+									printf("Modificacion de usuario con exito!\n");
+								} else {
+									printf("Fallo: modificacion de usuario\n");
+								}
+							} else {
+								printf("Fallo: el usuario no existe\n");
+							}
+							break;
+						case 4: /*Borrar registro de usuario*/
+							/*BUSCAR*/
+							printf("Ingrese el codigo del usuario\n");
+							scanf("%s", &buscarusuario1_1_arg);
+							result_6 = buscarusuario1_1(&buscarusuario1_1_arg, clnt);
+							if (result_6 == (bool_t *) NULL) {
+								clnt_perror (clnt, "call failed");
+							}
+							//Si existe el usuario
+							if(*result_6){
+								result_5 = borrarusuario1_1(&borrarusuario1_1_arg, clnt);
+								if (result_5 == (bool_t *) NULL) {
+									clnt_perror (clnt, "call failed");
+								}
+								if(*result_5){
+									printf("Se elimino el usuario con exito!\n");
+								} else {
+									printf("Fallo: eliminar usuario!\n");
+								}
+								
+							} else {
+								printf("Fallo: el usuario no existe\n");
+							}
+							break;
+						case 5: printf("Ha cerrado sesion!\n");
+							break;
+						default: printf("opcion no valida!");
+							 break;
+					}
+				}
+
+				
+			} else{ /*LOGIN INCORRECTO*/
+				printf("Login incorrecto!\n presione Enter para continuar\n");
+			}
+		}
+	}
+
+=======
 	result_1 = ingresarsistema1_1(&ingresarsistema1_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
@@ -56,6 +219,7 @@ administraraccesousuarios_1(char *host)
 	if (result_6 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */

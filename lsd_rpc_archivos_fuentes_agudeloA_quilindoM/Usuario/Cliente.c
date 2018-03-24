@@ -4,6 +4,12 @@
  * as a guideline for developing your own functions.
  */
 
+<<<<<<< HEAD
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #include "usuario.h"
 
 
@@ -17,6 +23,10 @@ usuario_1(char *host)
 	char * salirinstalaciones3_1_arg;
 	bool_t  *result_3;
 	char * esusuarioregistrado3_1_arg;
+<<<<<<< HEAD
+	int opcion;
+=======
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, Usuario, Usuario1, "udp");
@@ -26,6 +36,85 @@ usuario_1(char *host)
 	}
 #endif	/* DEBUG */
 
+<<<<<<< HEAD
+	opcion = 0;
+	while(opcion != 3)
+	{
+		printf("==================================================\n");
+		printf("\t\t MENU \n");
+		printf("==================================================\n");
+		printf("1. Ingresar a las instalaciones\n");
+		printf("2. Salir de las instalaciones\n");
+		printf("3. Salir\n");
+		printf("==================================================\n");
+		printf("Digite una opcion\n");
+		scanf("%d",  &opcion);
+		system("clear");
+		
+		switch(opcion){
+			case 1: /*BUSCAR*/
+				printf("Ingrese su codigo\n");
+				scanf("%s", &esusuarioregistrado3_1_arg);
+				result_3 = esusuarioregistrado3_1(&esusuarioregistrado3_1_arg, clnt);
+				if (result_3 == (bool_t *) NULL) {
+					clnt_perror (clnt, "call failed");
+				}
+
+				if(*result_3){
+					entrarinstalaciones3_1_arg = esusuarioregistrado3_1_arg;
+					printf("Ingrese su codigo\n");
+					scanf("%s", &entrarinstalaciones3_1_arg);
+
+					result_1 = entrarinstalaciones3_1(&entrarinstalaciones3_1_arg, clnt);
+					if (result_1 == (bool_t *) NULL) {
+						clnt_perror (clnt, "call failed");
+					}
+					if(*result_1){
+						//Si esta dentro de las instalaciones
+						printf("Violacion de seguridad\n");
+					} else {	
+						//Sino esta dentro de las instalaciones 
+						printf("Acceso concedido\n");
+					}
+				} else {
+					printf("Acceso denegado, codigo no registrado, por favor contacte al administrador de la aplicacion\n");
+				}
+				
+				break;
+
+			case 2: /*BUSCAR*/
+				printf("Ingrese su codigo\n");
+				scanf("%s", &esusuarioregistrado3_1_arg);
+				result_3 = esusuarioregistrado3_1(&esusuarioregistrado3_1_arg, clnt);
+				if (result_3 == (bool_t *) NULL) {
+					clnt_perror (clnt, "call failed");
+				}
+
+				if(*result_3){
+					salirinstalaciones3_1_arg = esusuarioregistrado3_1_arg;
+					result_2 = salirinstalaciones3_1(&salirinstalaciones3_1_arg, clnt);
+					if (result_2 == (bool_t *) NULL) {
+						clnt_perror (clnt, "call failed");
+					}
+					if(*result_2){
+						//Si esta dentro de las instalaciones
+						printf("Violacion de seguridad\n");
+					} else {
+						//Sino esta dentro de las instalaciones 
+						printf("Salida concedida\n");
+					}
+				} else{
+					printf("Salida denegada, codigo no registrado, por favor contacte al administrador de la aplicacion\n");
+				}
+				break;
+
+			default: printf("Opcion no valida\n");
+				 break;
+		}
+	}	
+
+
+=======
 	result_1 = entrarinstalaciones3_1(&entrarinstalaciones3_1_arg, clnt);
 	if (result_1 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
@@ -38,6 +127,7 @@ usuario_1(char *host)
 	if (result_3 == (bool_t *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
+>>>>>>> 27da1903b4be11cd4f76ad07e35edbd4f64086cd
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */
